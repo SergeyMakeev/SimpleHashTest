@@ -1,0 +1,36 @@
+[submodule "extern/ubench"]
+	path = extern/ubench
+	url = https://github.com/sheredom/ubench.h.git
+[submodule "extern/flat_hash_map"]
+	path = extern/flat_hash_map
+	url = https://github.com/skarupke/flat_hash_map
+[submodule "extern/robin-map"]
+	path = extern/robin-map
+	url = https://github.com/Tessil/robin-map.git
+[submodule "extern/luau"]
+	path = extern/luau
+	url = https://github.com/Roblox/luau.git
+[submodule "extern/folly"]
+	path = extern/folly
+	url = https://github.com/facebook/folly.git
+[submodule "extern/abseil-cpp"]
+	path = extern/abseil-cpp
+	url = https://github.com/abseil/abseil-cpp.git
+[submodule "extern/llvm-project"]
+	path = extern/llvm-project
+	url = https://github.com/llvm/llvm-project.git
+[submodule "extern/ExcaliburHash"]
+	path = extern/ExcaliburHash
+	url = https://github.com/SergeyMakeev/ExcaliburHash.git
+[submodule "extern/boost/preprocessor"]
+	path = extern/boost/preprocessor
+	url = https://github.com/boostorg/preprocessor.git
+[submodule "extern/boost/unordered"]
+	path = extern/boost/unordered
+	url = https://github.com/boostorg/unordered.git
+[submodule "extern/boost/config"]
+	path = extern/boost/config
+	url = https://github.com/boostorg/config.git
+[submodule "extern/boost/core"]
+	path = extern/boost/core
+	url = https://github.com/boostorg/core.git
