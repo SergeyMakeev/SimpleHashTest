@@ -73,8 +73,30 @@ target_link_libraries(${EXE_NAME} boost_tuple)
 add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/predef")
 target_link_libraries(${EXE_NAME} boost_predef)
 
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/container")
+target_link_libraries(${EXE_NAME} boost_container)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/intrusive")
+target_link_libraries(${EXE_NAME} boost_intrusive)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/winapi")
+target_link_libraries(${EXE_NAME} boost_winapi)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/smart_ptr")
+target_link_libraries(${EXE_NAME} boost_smart_ptr)
 
 # Folly
 target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/folly")
 
+# Abseil
+target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/abseil-cpp")
+
+# LLVM
+target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include")
+configure_file(
+  ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/abi-breaking.h.cmake
+  ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/abi-breaking.h)
+configure_file(
+  ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/llvm-config.h.cmake
+  ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/llvm-config.h)
 
