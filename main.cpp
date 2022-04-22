@@ -26,6 +26,7 @@ void test()
 	tsl::robin_map<int, int> test04;
 	Luau::DenseHashMap<int, int> test05(INT_MIN);
 	folly::F14ValueMap<int, int> test06;
+	boost::unordered_map<int, int> test07;
 }
 
 

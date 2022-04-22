@@ -34,3 +34,36 @@
 [submodule "extern/boost/core"]
 	path = extern/boost/core
 	url = https://github.com/boostorg/core.git
+[submodule "extern/boost/container_hash"]
+	path = extern/boost/container_hash
+	url = https://github.com/boostorg/container_hash.git
+[submodule "extern/boost/integer"]
+	path = extern/boost/integer
+	url = https://github.com/boostorg/integer.git
+[submodule "extern/boost/assert"]
+	path = extern/boost/assert
+	url = https://github.com/boostorg/assert.git
+[submodule "extern/boost/type_traits"]
+	path = extern/boost/type_traits
+	url = https://github.com/boostorg/type_traits.git
+[submodule "extern/boost/container"]
+	path = extern/boost/container
+	url = https://github.com/boostorg/container.git
+[submodule "extern/boost/detail"]
+	path = extern/boost/detail
+	url = https://github.com/boostorg/detail.git
+[submodule "extern/boost/static_assert"]
+	path = extern/boost/static_assert
+	url = https://github.com/boostorg/static_assert.git
+[submodule "extern/boost/move"]
+	path = extern/boost/move
+	url = https://github.com/boostorg/move.git
+[submodule "extern/boost/throw_exception"]
+	path = extern/boost/throw_exception
+	url = https://github.com/boostorg/throw_exception.git
+[submodule "extern/boost/tuple"]
+	path = extern/boost/tuple
+	url = https://github.com/boostorg/tuple.git
+[submodule "extern/boost/predef"]
+	path = extern/boost/predef
+	url = https://github.com/boostorg/predef.git

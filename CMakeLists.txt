@@ -43,9 +43,35 @@ target_link_libraries(${EXE_NAME} boost_config)
 add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/core")
 target_link_libraries(${EXE_NAME} boost_core)
 
-#add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/functional")
-#target_link_libraries(${EXE_NAME} boost_functional)
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/container_hash")
+target_link_libraries(${EXE_NAME} boost_container_hash)
 
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/integer")
+target_link_libraries(${EXE_NAME} boost_integer)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/assert")
+target_link_libraries(${EXE_NAME} boost_assert)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/type_traits")
+target_link_libraries(${EXE_NAME} boost_type_traits)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/detail")
+target_link_libraries(${EXE_NAME} boost_detail)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/static_assert")
+target_link_libraries(${EXE_NAME} boost_static_assert)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/move")
+target_link_libraries(${EXE_NAME} boost_move)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/throw_exception")
+target_link_libraries(${EXE_NAME} boost_throw_exception)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/tuple")
+target_link_libraries(${EXE_NAME} boost_tuple)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/predef")
+target_link_libraries(${EXE_NAME} boost_predef)
 
 
 # Folly
