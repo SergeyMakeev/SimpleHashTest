@@ -9,7 +9,9 @@ set (CMAKE_CXX_STANDARD 17)
 
 
 set(BENCH_SOURCES 
+  TestCommon.h
   main.cpp
+  Test01.cpp
 )
 set (EXE_NAME ${PROJ_NAME})
 add_executable(${EXE_NAME} ${BENCH_SOURCES})
