@@ -93,6 +93,8 @@ target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/abs
 
 # LLVM
 target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include")
+target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/lib")
+
 configure_file(
   ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/abi-breaking.h.cmake
   ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/abi-breaking.h)
