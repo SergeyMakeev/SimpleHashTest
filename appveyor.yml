@@ -1,0 +1,16 @@
+version: "{branch}-ci-{build}"
+image: Visual Studio 2022
+
+build: msvc
+platform: x64
+configuration: Release
+
+build_script:
+- git submodule update --init --recursive
+- mkdir build
+- cd build
+- cmake ..
+- cd ..
+- cmake --build .\build\ --config Release
+- .\build\\Release\SimpleHashTest.exe --confidence=50
+
