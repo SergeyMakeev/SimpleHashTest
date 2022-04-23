@@ -1,0 +1,1 @@
+.\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=ClearAndInsertSeq* --output=test02.csv

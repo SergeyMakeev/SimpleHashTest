@@ -13,71 +13,59 @@ struct HeavyWeightObject
 };
 
 
-template<typename K, typename V>
-struct LuauDenseHashMap : public Luau::DenseHashMap<K, V>
-{
-	LuauDenseHashMap(const K& empty_key = Excalibur::KeyInfo<K>::getEmpty())
-		: DenseHashMap(empty_key)
-	{
-	}
-};
-
-
-
-
-#define TEST_CTOR_DTOR(name) \
+#define DO_TEST(THashMap) \
 for(int i = 0; i < 300000; i++) \
 { \
-	name<int, HeavyWeightObject> hashMap; \
+	THashMap<int, HeavyWeightObject> hashMap; \
 } \
 
 
 UBENCH(CtorDtor, Excalibur)
 {
-	TEST_CTOR_DTOR(Excalibur::HashTable);
+	DO_TEST(Excalibur::HashTable);
 }
 
 UBENCH(CtorDtor, SkaFlatMap)
 {
-	TEST_CTOR_DTOR(ska::flat_hash_map);
+	DO_TEST(ska::flat_hash_map);
 }
 
 UBENCH(CtorDtor, SkaUnorderedMap)
 {
-	TEST_CTOR_DTOR(ska::unordered_map);
+	DO_TEST(ska::unordered_map);
 }
 
 UBENCH(CtorDtor, TslRobin)
 {
-	TEST_CTOR_DTOR(tsl::robin_map);
+	DO_TEST(tsl::robin_map);
 }
 
 UBENCH(CtorDtor, LuauDense)
 {
-	TEST_CTOR_DTOR(LuauDenseHashMap);
+	DO_TEST(LuauDenseHashMap);
 }
 
 UBENCH(CtorDtor, FollyF14)
 {
-	TEST_CTOR_DTOR(folly::F14ValueMap);
+	DO_TEST(folly::F14ValueMap);
 }
 
 UBENCH(CtorDtor, BoostUnordered)
 {
-	TEST_CTOR_DTOR(boost::unordered_map);
+	DO_TEST(boost::unordered_map);
 }
 
 UBENCH(CtorDtor, AbslFlatMap)
 {
-	TEST_CTOR_DTOR(absl::flat_hash_map);
+	DO_TEST(absl::flat_hash_map);
 }
 
 UBENCH(CtorDtor, LlvmDense)
 {
-	TEST_CTOR_DTOR(llvm::DenseMap);
+	DO_TEST(LlvmDenseMap);
 }
 
 UBENCH(CtorDtor, StdUnordered)
 {
-	TEST_CTOR_DTOR(std::unordered_map);
+	DO_TEST(std::unordered_map);
 }

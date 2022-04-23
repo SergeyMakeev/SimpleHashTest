@@ -12,6 +12,14 @@ set(BENCH_SOURCES
   TestCommon.h
   main.cpp
   Test01.cpp
+  Test02.cpp
+  Test03.cpp
+  Test04.cpp
+  Test05.cpp
+  Test06.cpp
+  Test07.cpp
+  Test08.cpp
+  Test09.cpp
 )
 set (EXE_NAME ${PROJ_NAME})
 add_executable(${EXE_NAME} ${BENCH_SOURCES})

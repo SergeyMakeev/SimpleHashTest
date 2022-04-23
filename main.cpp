@@ -15,6 +15,87 @@
 // llvm
 #include "Support/MemAlloc.cpp"
 
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+
+const std::vector<int>& getUniquePositiveRandomNumbers()
+{
+	const size_t kNumberOfItems = 1000000;
+	static std::vector<int> data;
+	if (data.empty())
+	{
+		std::random_device randDev;
+		std::mt19937 generator(randDev());
+		std::uniform_int_distribution<int> distr(1, std::numeric_limits<int>::max() - 1);
+
+		std::set<int> uniques;
+		while (uniques.size() < kNumberOfItems)
+		{
+			uniques.insert(distr(generator));
+		}
+
+		data.resize(kNumberOfItems);
+		std::copy(uniques.begin(), uniques.end(), data.begin());
+	}
+	return data;
+}
+
+// 10% of the resulting data set is intersected
+const std::vector<int>& getRandomNumbersWithIntersections10()
+{
+	static std::vector<int> data;
+	if (data.empty())
+	{
+		data = getUniquePositiveRandomNumbers();
+		size_t cutoff = (data.size() / 10);
+		size_t j = 0;
+		for (size_t i = cutoff; i < data.size(); i++, j++)
+		{
+			data[i] = data[j];
+		}
+		std::random_device rd;
+		std::mt19937 g(rd());
+		std::shuffle(data.begin(), data.end(), g);
+	}
+	return data;
+}
+
+// 50% of the resulting data set is intersected
+const std::vector<int>& getRandomNumbersWithIntersections50()
+{
+	static std::vector<int> data;
+	if (data.empty())
+	{
+		data = getUniquePositiveRandomNumbers();
+		size_t cutoff = (data.size() / 2);
+		size_t j = 0;
+		for (size_t i = cutoff; i < data.size(); i++, j++)
+		{
+			data[i] = data[j];
+		}
+		std::random_device rd;
+		std::mt19937 g(rd());
+		std::shuffle(data.begin(), data.end(), g);
+	}
+	return data;
+}
+
+
+
+struct PreMain
+{
+	PreMain() {
+		getUniquePositiveRandomNumbers();
+		getRandomNumbersWithIntersections10();
+		getRandomNumbersWithIntersections50();
+	}
+};
+
+PreMain preMain;
+
+
+
 
 /*
 void test()
