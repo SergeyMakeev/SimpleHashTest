@@ -23,6 +23,9 @@ build_script:
  - .\build\Release\SimpleHashTest.exe --confidence=50 --filter=SearchExisting* --output=csv/test09.csv
 
 after_build:
+- cd csv
+- "python combine.py > combined.csv"
+- cd ..
 - 7z a results.zip %APPVEYOR_BUILD_FOLDER%\csv\*.csv
 
 artifacts:
