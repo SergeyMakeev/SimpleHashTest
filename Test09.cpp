@@ -8,7 +8,7 @@ struct TAdder
 
 	void step(const T& hashMap, int search)
 	{
-		auto it = hashMap.find(search);
+		const auto it = hashMap.find(search);
 		const int& v = it->second;
 		val += v;
 	}

@@ -111,4 +111,8 @@ configure_file(
 configure_file(
   ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/llvm-config.h.cmake
   ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/llvm-config.h)
+configure_file(
+  ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/abi-breaking.h.cmake
+  ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/abi-breaking.h)
+
 
