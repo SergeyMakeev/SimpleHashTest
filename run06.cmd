@@ -1,1 +1,1 @@
-.\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=InsertAccessWithProbability10* --output=test06.csv
+.\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=InsertAccessWithProbability10* --output=csv/test06.csv

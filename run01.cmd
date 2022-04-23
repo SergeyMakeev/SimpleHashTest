@@ -1,1 +1,1 @@
-.\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=CtorDtor* --output=test01.csv
+.\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=CtorDtor* --output=csv/test01.csv

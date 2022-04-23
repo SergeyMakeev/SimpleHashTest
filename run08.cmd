@@ -1,1 +1,1 @@
-.\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=SearchNonExisting* --output=test08.csv
+.\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=SearchNonExisting* --output=csv/test08.csv
