@@ -20,6 +20,7 @@ set(BENCH_SOURCES
   Test07.cpp
   Test08.cpp
   Test09.cpp
+  Test10.cpp
 )
 set (EXE_NAME ${PROJ_NAME})
 add_executable(${EXE_NAME} ${BENCH_SOURCES})

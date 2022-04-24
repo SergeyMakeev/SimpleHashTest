@@ -7,6 +7,7 @@
 .\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=InsertAccessWithProbability50* --output=csv/test07.csv
 .\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=SearchNonExisting* --output=csv/test08.csv
 .\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=SearchExisting* --output=csv/test09.csv
+.\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=ClearAndInsertRnd* --output=csv/test10.csv
 cd csv
 python combine.py > combined.csv
 cd ..

@@ -21,6 +21,7 @@ build_script:
  - .\build\Release\SimpleHashTest.exe --confidence=50 --filter=InsertAccessWithProbability50* --output=csv/test07.csv
  - .\build\Release\SimpleHashTest.exe --confidence=50 --filter=SearchNonExisting* --output=csv/test08.csv
  - .\build\Release\SimpleHashTest.exe --confidence=50 --filter=SearchExisting* --output=csv/test09.csv
+ - .\build\Release\SimpleHashTest.exe --confidence=50 --filter=ClearAndInsertRnd* --output=csv/test10.csv
 
 after_build:
 - cd csv

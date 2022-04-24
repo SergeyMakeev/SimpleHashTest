@@ -58,7 +58,10 @@ def main():
     test09 = load_csv("test09.csv")
     normalize(test09)
 
-    test_runs = [test01, test02, test03, test04, test05, test06, test07, test08, test09]
+    test10 = load_csv("test10.csv")
+    normalize(test10)
+
+    test_runs = [test01, test02, test03, test04, test05, test06, test07, test08, test09, test10]
 
     names = ["AbslFlatMap", "BoostUnordered", "Excalibur", "FollyF14", "LlvmDense", "LuauDense", "SkaFlatMap",
              "SkaUnorderedMap", "StdUnordered", "TslRobin"]
