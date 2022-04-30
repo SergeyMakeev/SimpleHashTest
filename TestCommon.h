@@ -32,6 +32,8 @@
 // llvm
 #include "llvm/ADT/DenseMap.h"
 
+// google dense hash map
+#include <sparsehash/dense_hash_map>
 
 
 // adapter for luau dense hash map
@@ -67,8 +69,54 @@ public:
 	{
 		try_emplace(key, std::forward<Args>(args)...);
 	}
+};
+
+// adapter for google desne hash map
+template<typename K, typename V>
+struct GoogleDenseMap
+{
+	google::dense_hash_map<K, V> dmap;
+
+	GoogleDenseMap()
+	{
+		dmap.set_empty_key(Excalibur::KeyInfo<K>::getEmpty());
+	}
+
+	inline void clear()
+	{
+		dmap.clear();
+	}
+
+	inline void erase(const K& key)
+	{
+		dmap.erase(key);
+	}
+
+	template <typename TK, class... Args> inline void emplace(TK&& key, Args&&... args)
+	{
+		V& val = dmap[key];
+		val = V(std::forward<Args>(args)...);
+	}
+
+	inline V& operator[](const K& key)
+	{
+		return dmap[key];
+	}
+
+	inline typename google::dense_hash_map<K, V>::iterator find(const K& key)
+	{
+		return dmap.find(key);
+	}
+
+	inline typename google::dense_hash_map<K, V>::const_iterator find(const K& key) const
+	{
+		return dmap.find(key);
+	}
+
 
 };
+
+
 
 
 // the resulting data set is unique

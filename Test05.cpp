@@ -60,3 +60,8 @@ UBENCH(CtorSingleEmplaceDtor, StdUnordered)
 {
 	DO_TEST(std::unordered_map);
 }
+
+UBENCH(CtorSingleEmplaceDtor, GoogleDense)
+{
+	DO_TEST(GoogleDenseMap);
+}

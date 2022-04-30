@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 2.8.12)
 
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" FORCE)
+
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 set(PROJ_NAME SimpleHashTest)
@@ -24,6 +26,14 @@ set(BENCH_SOURCES
 )
 set (EXE_NAME ${PROJ_NAME})
 add_executable(${EXE_NAME} ${BENCH_SOURCES})
+
+if(MSVC)
+  target_compile_options(${EXE_NAME} PRIVATE "$<$<CONFIG:Release>:/Zi>")
+  target_link_options(${EXE_NAME} PRIVATE "$<$<CONFIG:Release>:/DEBUG>")
+  target_link_options(${EXE_NAME} PRIVATE "$<$<CONFIG:Release>:/OPT:REF>")
+  target_link_options(${EXE_NAME} PRIVATE "$<$<CONFIG:Release>:/OPT:ICF>")
+endif()
+
 
 target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/ubench")
 
@@ -115,5 +125,13 @@ configure_file(
 configure_file(
   ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/abi-breaking.h.cmake
   ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/abi-breaking.h)
+
+# Google Dense Hash
+target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/sparsehash/src")
+
+configure_file(
+  ${PROJECT_SOURCE_DIR}/extern/sparsehash/src/windows/sparsehash/internal/sparseconfig.h
+  ${PROJECT_SOURCE_DIR}/extern/sparsehash/src/sparsehash/internal/sparseconfig.h COPYONLY)
+
 
 

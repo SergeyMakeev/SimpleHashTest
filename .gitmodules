@@ -76,3 +76,6 @@
 [submodule "extern/boost/smart_ptr"]
 	path = extern/boost/smart_ptr
 	url = https://github.com/boostorg/smart_ptr.git
+[submodule "extern/sparsehash"]
+	path = extern/sparsehash
+	url = https://github.com/sparsehash/sparsehash.git

@@ -68,3 +68,8 @@ UBENCH(SearchNonExisting, StdUnordered)
 {
 	DO_TEST(std::unordered_map);
 }
+
+UBENCH(SearchNonExisting, GoogleDense)
+{
+	DO_TEST(GoogleDenseMap);
+}

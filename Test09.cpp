@@ -95,3 +95,7 @@ UBENCH(SearchExisting, StdUnordered)
 	DO_TEST(std::unordered_map);
 }
 
+UBENCH(SearchExisting, GoogleDense)
+{
+	DO_TEST(GoogleDenseMap);
+}

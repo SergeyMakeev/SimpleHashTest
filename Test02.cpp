@@ -62,3 +62,8 @@ UBENCH(ClearAndInsertSeq, StdUnordered)
 {
 	DO_TEST(std::unordered_map);
 }
+
+UBENCH(ClearAndInsertSeq, GoogleDense)
+{
+	DO_TEST(GoogleDenseMap);
+}

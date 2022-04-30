@@ -9,7 +9,7 @@ struct Value
 
 #define DO_TEST(THashMap) \
 const std::vector<int>& randomNumbers = getRandomNumbersWithIntersections50(); \
-for(int i = 0; i < 10; i++) \
+for(int i = 0; i < 8; i++) \
 { \
 	THashMap<int, Value> hashMap; \
 	for (const int& num : randomNumbers) \
@@ -67,4 +67,9 @@ UBENCH(InsertAccessWithProbability50, LlvmDense)
 UBENCH(InsertAccessWithProbability50, StdUnordered)
 {
 	DO_TEST(std::unordered_map);
+}
+
+UBENCH(InsertAccessWithProbability50, GoogleDense)
+{
+	DO_TEST(GoogleDenseMap);
 }

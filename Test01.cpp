@@ -1,14 +1,14 @@
 #include "TestCommon.h"
-#include <thread>
 
 struct HeavyWeightObject
 {
-	uint32_t val;
+	int64_t val;
 	HeavyWeightObject()
 	{
-		// Simulate heavy ctor workload with a sleep
-		std::this_thread::sleep_for(std::chrono::milliseconds(200));
-		val = rand();
+		for (int i = 0; i < 400; i++)
+		{
+			val ^= rand();
+		}
 	}
 };
 
@@ -68,4 +68,9 @@ UBENCH(CtorDtor, LlvmDense)
 UBENCH(CtorDtor, StdUnordered)
 {
 	DO_TEST(std::unordered_map);
+}
+
+UBENCH(CtorDtor, GoogleDense)
+{
+	DO_TEST(GoogleDenseMap);
 }

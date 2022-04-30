@@ -49,8 +49,8 @@ const std::vector<int>& getRandomNumbersWithIntersections10()
 	{
 		data = getUniquePositiveRandomNumbers();
 		size_t cutoff = (data.size() / 10);
-		size_t j = 0;
-		for (size_t i = cutoff; i < data.size(); i++, j++)
+		size_t j = cutoff;
+		for (size_t i = 0; i < cutoff; i++, j++)
 		{
 			data[i] = data[j];
 		}

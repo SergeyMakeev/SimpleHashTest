@@ -69,3 +69,8 @@ UBENCH(InsertRndAndRemove, StdUnordered)
 {
 	DO_TEST(std::unordered_map);
 }
+
+UBENCH(InsertRndAndRemove, GoogleDense)
+{
+	DO_TEST(GoogleDenseMap);
+}
