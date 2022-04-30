@@ -80,6 +80,7 @@ struct GoogleDenseMap
 	GoogleDenseMap()
 	{
 		dmap.set_empty_key(Excalibur::KeyInfo<K>::getEmpty());
+		dmap.set_deleted_key(Excalibur::KeyInfo<K>::getTombstone());
 	}
 
 	inline void clear()
