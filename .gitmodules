@@ -79,3 +79,6 @@
 [submodule "extern/sparsehash"]
 	path = extern/sparsehash
 	url = https://github.com/sparsehash/sparsehash.git
+[submodule "extern/slot_map"]
+	path = extern/slot_map
+	url = https://github.com/SergeyMakeev/slot_map.git

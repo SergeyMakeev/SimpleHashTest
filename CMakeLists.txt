@@ -23,6 +23,7 @@ set(BENCH_SOURCES
   Test08.cpp
   Test09.cpp
   Test10.cpp
+  Test11.cpp
 )
 set (EXE_NAME ${PROJ_NAME})
 add_executable(${EXE_NAME} ${BENCH_SOURCES})
@@ -115,6 +116,11 @@ target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/abs
 # LLVM
 target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include")
 target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/lib")
+
+# slot_map
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/slot_map/slot_map")
+target_link_libraries(${PROJ_NAME} slot_map)
+
 
 configure_file(
   ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/abi-breaking.h.cmake
