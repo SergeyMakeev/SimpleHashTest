@@ -73,3 +73,13 @@ UBENCH(SearchNonExisting, GoogleDense)
 {
 	DO_TEST(GoogleDenseMap);
 }
+
+UBENCH(SearchNonExisting, BoostUnorderedFlat)
+{
+	DO_TEST(boost::unordered_flat_map);
+}
+
+UBENCH(SearchNonExisting, ParallelHashmap)
+{
+	DO_TEST(phmap::flat_hash_map);
+}

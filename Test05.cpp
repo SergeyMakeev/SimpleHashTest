@@ -65,3 +65,13 @@ UBENCH(CtorSingleEmplaceDtor, GoogleDense)
 {
 	DO_TEST(GoogleDenseMap);
 }
+
+UBENCH(CtorSingleEmplaceDtor, BoostUnorderedFlat)
+{
+	DO_TEST(boost::unordered_flat_map);
+}
+
+UBENCH(CtorSingleEmplaceDtor, ParallelHashmap)
+{
+	DO_TEST(phmap::flat_hash_map);
+}

@@ -133,9 +133,11 @@ void aliasingTest()
     DO_TEST2(LuauDenseHashMap);
     DO_TEST(folly::F14ValueMap);
     DO_TEST(boost::unordered_map);
+    DO_TEST(boost::unordered_flat_map);
     DO_TEST(absl::flat_hash_map);
     DO_TEST(LlvmDenseMap);
     DO_TEST(std::unordered_map);
     DO_TEST(GoogleDenseMap);
+    DO_TEST(phmap::flat_hash_map);
     printf("===========================\n");
 }

@@ -57,6 +57,12 @@ target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/lua
 add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/preprocessor")
 target_link_libraries(${EXE_NAME} boost_preprocessor)
 
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/mp11")
+target_link_libraries(${EXE_NAME} boost_mp11)
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/describe")
+target_link_libraries(${EXE_NAME} boost_describe)
+
 add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/unordered")
 target_link_libraries(${EXE_NAME} boost_unordered)
 
@@ -122,6 +128,8 @@ target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/llv
 add_subdirectory("${PROJECT_SOURCE_DIR}/extern/slot_map/slot_map")
 target_link_libraries(${PROJ_NAME} slot_map)
 
+# parallel-hashmap
+include_directories("${PROJECT_SOURCE_DIR}/extern/parallel-hashmap")
 
 configure_file(
   ${PROJECT_SOURCE_DIR}/extern/llvm-project/llvm/include/llvm/Config/abi-breaking.h.cmake

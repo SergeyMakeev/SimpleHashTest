@@ -73,3 +73,13 @@ UBENCH(InsertAccessWithProbability50, GoogleDense)
 {
 	DO_TEST(GoogleDenseMap);
 }
+
+UBENCH(InsertAccessWithProbability50, BoostUnorderedFlat)
+{
+	DO_TEST(boost::unordered_flat_map);
+}
+
+UBENCH(InsertAccessWithProbability50, ParallelHashmap)
+{
+	DO_TEST(phmap::flat_hash_map);
+}

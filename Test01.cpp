@@ -74,3 +74,14 @@ UBENCH(CtorDtor, GoogleDense)
 {
 	DO_TEST(GoogleDenseMap);
 }
+
+UBENCH(CtorDtor, BoostUnorderedFlat)
+{
+	DO_TEST(boost::unordered_flat_map);
+}
+
+UBENCH(CtorDtor, ParallelHashmap)
+{
+	DO_TEST(phmap::flat_hash_map);
+}
+

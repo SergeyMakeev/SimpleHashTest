@@ -82,3 +82,12 @@
 [submodule "extern/slot_map"]
 	path = extern/slot_map
 	url = https://github.com/SergeyMakeev/slot_map.git
+[submodule "extern/boost/mp11"]
+	path = extern/boost/mp11
+	url = https://github.com/boostorg/mp11.git
+[submodule "extern/boost/describe"]
+	path = extern/boost/describe
+	url = https://github.com/boostorg/describe.git
+[submodule "extern/parallel-hashmap"]
+	path = extern/parallel-hashmap
+	url = https://github.com/greg7mdp/parallel-hashmap.git

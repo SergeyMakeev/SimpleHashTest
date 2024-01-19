@@ -25,6 +25,11 @@
 
 // boost
 #include "boost/unordered/unordered_map.hpp"
+#include "boost/unordered/unordered_flat_map.hpp"
+
+// parallel_hashmap
+#include "parallel_hashmap/phmap.h"
+
 
 // abseil
 #include "absl/container/flat_hash_map.h"

@@ -73,3 +73,13 @@ UBENCH(InsertRndClearAndReInsert, GoogleDense)
 {
 	DO_TEST(GoogleDenseMap);
 }
+
+UBENCH(InsertRndClearAndReInsert, BoostUnorderedFlat)
+{
+	DO_TEST(boost::unordered_flat_map);
+}
+
+UBENCH(InsertRndClearAndReInsert, ParallelHashmap)
+{
+	DO_TEST(phmap::flat_hash_map);
+}
