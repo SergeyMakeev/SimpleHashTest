@@ -27,18 +27,29 @@ struct ComplexValue
         EXPECT_FALSE(other.isDeleted);
         isMoved = other.isMoved;
         isDeleted = other.isDeleted;
+        val = other.val;
         return *this;
     }
 
     ComplexValue() noexcept
         : isMoved(false)
         , isDeleted(false)
+        , val(INT_MIN)
+    {
+    }
+
+
+    ComplexValue(int v) noexcept
+        : isMoved(false)
+        , isDeleted(false)
+        , val(v)
     {
     }
 
     ComplexValue(ComplexValue&& other) noexcept
         : isMoved(other.isMoved)
         , isDeleted(other.isDeleted)
+        , val(other.val)
     {
         EXPECT_FALSE(other.isDeleted);
         other.isMoved = true;
@@ -50,12 +61,14 @@ struct ComplexValue
     {
         isDeleted = other.isDeleted;
         isMoved = other.isMoved;
+        val = other.val;
         other.isMoved = true;
         return *this;
     }
 
     bool isMoved;
     bool isDeleted;
+    int val;
 };
 
 
@@ -69,7 +82,7 @@ struct ComplexValue
         THashMap<int, ComplexValue> ht; \
         for (int j = 0; j < i; j++) \
         { \
-            ht.emplace(j, ComplexValue{}); \
+            ht.emplace(j, j); \
         } \
         auto it = ht.find(0); \
         ht.emplace(-1, it->second); \
@@ -87,14 +100,13 @@ struct ComplexValue
 #define DO_TEST2(THashMap) \
 { \
     testFailed = false; \
-    printf("Testing: "); \
     printf(#THashMap); \
     for (int i = 1; i <= 1000; i++) \
     { \
         THashMap<int, ComplexValue> ht; \
         for (int j = 0; j < i; j++) \
         { \
-            ht.emplace(j, ComplexValue{}); \
+            ht.emplace(j, j); \
         } \
         auto it = ht.find(0); \
         ht.emplace(-1, *it); \
