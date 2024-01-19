@@ -24,6 +24,7 @@ set(BENCH_SOURCES
   Test09.cpp
   Test10.cpp
   Test11.cpp
+  AliasingTest.cpp
 )
 set (EXE_NAME ${PROJ_NAME})
 add_executable(${EXE_NAME} ${BENCH_SOURCES})

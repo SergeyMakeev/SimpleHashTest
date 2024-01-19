@@ -94,6 +94,8 @@ const std::vector<int>& getRandomNumbersWithIntersections50()
 }
 
 
+extern void aliasingTest();
+
 
 struct PreMain
 {
@@ -101,6 +103,7 @@ struct PreMain
 		getUniquePositiveRandomNumbers();
 		getRandomNumbersWithIntersections10();
 		getRandomNumbersWithIntersections50();
+		aliasingTest();
 	}
 };
 

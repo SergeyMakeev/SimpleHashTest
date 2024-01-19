@@ -71,11 +71,78 @@ public:
 	}
 };
 
-// adapter for google desne hash map
-template<typename K, typename V>
-struct GoogleDenseMap
+
+
+namespace my_stdext
 {
-	google::dense_hash_map<K, V> dmap;
+	using _STD basic_string;
+	using _STD less;
+	using _STD size_t;
+
+	template <class _Kty>
+	_NODISCARD size_t hash_value(const _Kty& _Keyval) noexcept {
+		if constexpr (_STD is_pointer_v<_Kty> || _STD is_null_pointer_v<_Kty>) {
+			return reinterpret_cast<size_t>(_Keyval) ^ 0xdeadbeefu;
+		}
+		else {
+			return static_cast<size_t>(_Keyval) ^ 0xdeadbeefu;
+		}
+	}
+
+	template <class _Elem, class _Traits, class _Alloc>
+	_NODISCARD size_t hash_value(const basic_string<_Elem, _Traits, _Alloc>& _Str) noexcept {
+		return _STD _Hash_array_representation(_Str.c_str(), _Str.size());
+	}
+
+	_NODISCARD inline size_t hash_value(_In_z_ const char* _Str) noexcept {
+		return _STD _Hash_array_representation(_Str, _CSTD strlen(_Str));
+	}
+
+	_NODISCARD inline size_t hash_value(_In_z_ const wchar_t* _Str) noexcept {
+		return _STD _Hash_array_representation(_Str, _CSTD wcslen(_Str));
+	}
+
+	template <class _Kty, class _Pr = less<_Kty>>
+	class hash_compare { // traits class for hash containers
+	public:
+		enum { // parameters for hash table
+			bucket_size = 1 // 0 < bucket_size
+		};
+
+		hash_compare() = default;
+		hash_compare(const _Pr& _Pred) noexcept(_STD is_nothrow_copy_constructible_v<_Pr>) : comp(_Pred) {}
+
+		_NODISCARD size_t operator()(const _Kty& _Keyval) const noexcept(noexcept(hash_value(_Keyval))) {
+			long _Quot = static_cast<long>(hash_value(_Keyval) & LONG_MAX); // TRANSITION, ADL?
+			ldiv_t _Qrem = _CSTD ldiv(_Quot, 127773);
+
+			_Qrem.rem = 16807 * _Qrem.rem - 2836 * _Qrem.quot;
+			if (_Qrem.rem < 0) {
+				_Qrem.rem += LONG_MAX;
+			}
+
+			return static_cast<size_t>(_Qrem.rem);
+		}
+
+		_NODISCARD bool operator()(const _Kty& _Keyval1, const _Kty& _Keyval2) const
+			noexcept(noexcept(comp(_Keyval1, _Keyval2))) {
+			// test if _Keyval1 ordered before _Keyval2
+			return comp(_Keyval1, _Keyval2);
+		}
+
+		_Pr comp{}; // the comparator object
+	};
+
+}
+
+// adapter for google desne hash map
+template<typename K, typename V,
+	class HashFcn = my_stdext::hash_compare<K>,   // defined in sparseconfig.h
+	class EqualKey = std::equal_to<K>,
+	class Alloc = google::libc_allocator_with_realloc<std::pair<const K, V> > >
+	struct GoogleDenseMap
+{
+	google::dense_hash_map<K, V, HashFcn, EqualKey, Alloc> dmap;
 
 	GoogleDenseMap()
 	{
@@ -104,12 +171,12 @@ struct GoogleDenseMap
 		return dmap[key];
 	}
 
-	inline typename google::dense_hash_map<K, V>::iterator find(const K& key)
+	inline typename google::dense_hash_map<K, V, HashFcn, EqualKey, Alloc>::iterator find(const K& key)
 	{
 		return dmap.find(key);
 	}
 
-	inline typename google::dense_hash_map<K, V>::const_iterator find(const K& key) const
+	inline typename google::dense_hash_map<K, V, HashFcn, EqualKey, Alloc>::const_iterator find(const K& key) const
 	{
 		return dmap.find(key);
 	}
