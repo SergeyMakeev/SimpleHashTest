@@ -19,6 +19,18 @@
 #include <random>
 #include <algorithm>
 
+
+namespace absl {
+	namespace raw_log_internal {
+
+		void RawLog(absl::LogSeverity severity, const char* file, int line,
+			const char* format, ...)
+		{
+
+		}
+	}
+}
+
 const std::vector<int>& getUniquePositiveRandomNumbers()
 {
 	const size_t kNumberOfItems = 1000000;

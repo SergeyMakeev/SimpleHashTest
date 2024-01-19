@@ -50,7 +50,7 @@ target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/fla
 target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/robin-map/include/tsl")
 
 # Luau Desnse Hash
-target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/luau/Ast/include")
+target_include_directories(${EXE_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/extern/luau/Common/include")
 
 # Boost
 add_subdirectory("${PROJECT_SOURCE_DIR}/extern/boost/preprocessor")

@@ -9,7 +9,7 @@ struct DodSlotMap
 
 	uint64_t emplace(int val)
 	{
-		dod::slot_map_key<int> key = slotMap.emplace(val);
+		dod::slot_map_key64<int> key = slotMap.emplace(val);
 		return key;
 	}
 
