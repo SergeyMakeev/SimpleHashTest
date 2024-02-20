@@ -10,6 +10,8 @@ for(int i = 0; i < 25; i++) \
 	{ \
 		hashMap.emplace(j, -j); \
 	} \
+	const void* v = &hashMap[3]; \
+	UBENCH_DO_NOTHING(const_cast<void*>(v)); \
 } \
 
 
