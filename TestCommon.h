@@ -145,7 +145,7 @@ template<typename K, typename V,
 	class HashFcn = my_stdext::hash_compare<K>,   // defined in sparseconfig.h
 	class EqualKey = std::equal_to<K>,
 	class Alloc = google::libc_allocator_with_realloc<std::pair<const K, V> > >
-	struct GoogleDenseMap
+struct GoogleDenseMap
 {
 	google::dense_hash_map<K, V, HashFcn, EqualKey, Alloc> dmap;
 
@@ -186,6 +186,11 @@ template<typename K, typename V,
 		return dmap.find(key);
 	}
 
+	inline size_t size() const
+	{
+		return dmap.size();
+	}
+
 
 };
 
@@ -195,8 +200,11 @@ template<typename K, typename V,
 // the resulting data set is unique
 extern const std::vector<int>& getUniquePositiveRandomNumbers();
 
+// 
+extern const std::vector<int>& getUniqueSequentialPositiveNumbers();
+
 // 10% of the resulting data set is intersected
-const std::vector<int>& getRandomNumbersWithIntersections10();
+extern const std::vector<int>& getRandomNumbersWithIntersections10();
 
 // 50% of the resulting data set is intersected
-const std::vector<int>& getRandomNumbersWithIntersections50();
+extern const std::vector<int>& getRandomNumbersWithIntersections50();

@@ -16,19 +16,6 @@ struct DodSlotMap
 };
 
 
-namespace Excalibur
-{
-	template <> struct KeyInfo<uint64_t>
-	{
-		static inline bool isValid(const uint64_t& key) noexcept { return key < 0xfffffffffffffffeL; }
-		static inline uint64_t getTombstone() noexcept { return 0xffffffffffffffffL; }
-		static inline uint64_t getEmpty() noexcept { return 0xfffffffffffffffeL; }
-		static inline uint64_t hash(const uint64_t& key) noexcept { return key; }
-		static inline bool isEqual(const uint64_t& lhs, const uint64_t& rhs) noexcept { return lhs == rhs; }
-	};
-
-}
-
 template<typename THashMap>
 struct SlotMapAdapter
 {

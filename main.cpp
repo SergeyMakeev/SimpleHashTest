@@ -31,6 +31,20 @@ namespace absl {
 	}
 }
 
+const std::vector<int>& getUniqueSequentialPositiveNumbers()
+{
+	const size_t kNumberOfItems = 1000000;
+	static std::vector<int> data;
+	if (data.empty())
+	{
+		for (size_t i = 0; i < kNumberOfItems; i++)
+		{
+			data.emplace_back(i + 1);
+		}
+	}
+	return data;
+}
+
 const std::vector<int>& getUniquePositiveRandomNumbers()
 {
 	const size_t kNumberOfItems = 1000000;
@@ -41,11 +55,20 @@ const std::vector<int>& getUniquePositiveRandomNumbers()
 		std::mt19937 generator(randDev());
 		std::uniform_int_distribution<int> distr(1, std::numeric_limits<int>::max() - 1);
 
-		std::set<int> uniques;
+		std::unordered_set<int> uniques;
+
+		// insert 32768 sequential numbers
+		// (good test for identity hashes, typically they will behave badly on this data)
+		for (size_t i = 1; i <= 32768; i++)
+		{
+			uniques.insert(int(i));
+		}
+
 		while (uniques.size() < kNumberOfItems)
 		{
 			uniques.insert(distr(generator));
 		}
+
 
 		data.resize(kNumberOfItems);
 		std::copy(uniques.begin(), uniques.end(), data.begin());
@@ -100,6 +123,7 @@ extern void aliasingTest();
 struct PreMain
 {
 	PreMain() {
+		getUniqueSequentialPositiveNumbers();
 		getUniquePositiveRandomNumbers();
 		getRandomNumbersWithIntersections10();
 		getRandomNumbersWithIntersections50();

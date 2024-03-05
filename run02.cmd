@@ -1,1 +1,1 @@
-.\build2019\Release\SimpleHashTest.exe --confidence=50 --filter=ClearAndInsertSeq* --output=csv/test02.csv
+.\build2022\Release\SimpleHashTest.exe --confidence=50 --filter=ClearAndInsertSeq* --output=csv/test02.csv

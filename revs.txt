@@ -1,0 +1,63 @@
+
+C:\Work\GitHub\SimpleHashTest>cd ./extern/abseil-cpp 
+
+C:\Work\GitHub\SimpleHashTest\extern\abseil-cpp>git rev-parse HEAD 
+2be67701e7a33b45d322064349827e1155953338
+
+C:\Work\GitHub\SimpleHashTest\extern\abseil-cpp>cd ../.. 
+
+C:\Work\GitHub\SimpleHashTest>cd ./extern/Boost/unordered 
+
+C:\Work\GitHub\SimpleHashTest\extern\boost\unordered>git rev-parse HEAD 
+67c5cdb3a69f0b92d2779880ce9aa1d46e54cf7b
+
+C:\Work\GitHub\SimpleHashTest\extern\boost\unordered>cd ../.. 
+
+C:\Work\GitHub\SimpleHashTest\extern>cd ./extern/ExcaliburHash 
+
+C:\Work\GitHub\SimpleHashTest\extern>git rev-parse HEAD 
+f250f83dc22dc4de966a3384f6664853b8a40080
+
+C:\Work\GitHub\SimpleHashTest\extern>cd ../.. 
+
+C:\Work\GitHub>cd ./extern/flat_hash_map 
+
+C:\Work\GitHub>git rev-parse HEAD 
+
+C:\Work\GitHub>cd ../.. 
+
+C:\>cd ./extern/folly 
+
+C:\>git rev-parse HEAD 
+
+C:\>cd ../.. 
+
+C:\>cd ./extern/llvm-project 
+
+C:\>git rev-parse HEAD 
+
+C:\>cd ../.. 
+
+C:\>cd ./extern/luau 
+
+C:\>git rev-parse HEAD 
+
+C:\>cd ../.. 
+
+C:\>cd ./extern/parallel-hashmap 
+
+C:\>git rev-parse HEAD 
+
+C:\>cd ../.. 
+
+C:\>cd ./extern/robin-map 
+
+C:\>git rev-parse HEAD 
+
+C:\>cd ../.. 
+
+C:\>cd ./extern/sparsehash 
+
+C:\>git rev-parse HEAD 
+
+C:\>cd ../.. 

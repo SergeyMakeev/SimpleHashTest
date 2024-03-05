@@ -2,16 +2,15 @@
 
 
 #define DO_TEST(THashMap) \
+const std::vector<int>& seqNumbers = getUniqueSequentialPositiveNumbers(); \
 THashMap<int, int> hashMap; \
-for(int i = 0; i < 25; i++) \
+for(int i = 0; i < 10; i++) \
 { \
 	hashMap.clear(); \
-	for(int j = 0; j < 599999; j++) \
+	for (const int& num : seqNumbers) \
 	{ \
-		hashMap.emplace(j, -j); \
+		hashMap.emplace(num, -num); \
 	} \
-	const void* v = &hashMap[3]; \
-	UBENCH_DO_NOTHING(const_cast<void*>(v)); \
 } \
 
 
