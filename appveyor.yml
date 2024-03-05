@@ -5,6 +5,9 @@ build: msvc
 platform: x64
 configuration: Release
 
+install:
+ - python -m pip install -U matplotlib
+
 build_script:
  - git submodule update --init --recursive
  - mkdir build
@@ -28,9 +31,12 @@ after_build:
 - "python combine.py > combined.csv"
 - cd ..
 - 7z a results.zip %APPVEYOR_BUILD_FOLDER%\csv\*.csv
+- 7z a charts.zip %APPVEYOR_BUILD_FOLDER%\csv\*.png
 
 artifacts:
 - path: results.zip
   name: Test Results
+- path: charts.zip
+  name: Charts
 
 
